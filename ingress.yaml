@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tuto-ingress
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - tuto.freeboxos.fr # Change to your domain name
+    secretName: tuto-tls # Change to the secret name you want
+  rules:
+  - host: tuto.freeboxos.fr # Change to your domain name
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: votre-service
+            port:
+              number: 80
