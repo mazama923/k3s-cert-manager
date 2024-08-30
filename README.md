@@ -45,7 +45,7 @@ kubectl apply -f certificate.yaml
 After a few minutes, check that the certificate is generated.
 
 ````bash
-kubectl describe certificate house-server-cert
+kubectl describe certificate tuto-tls
 ````
 
 If the certificate is not generated, check the Cert-Manager pod logs.
